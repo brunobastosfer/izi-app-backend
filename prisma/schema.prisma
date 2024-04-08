@@ -9,7 +9,7 @@ generator client {
 
 model Users {
   id        String   @id @unique @default(uuid())
-  email     String @unique
+  email     String   @unique
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -21,8 +21,8 @@ model Users {
 model Tasks {
   id          String   @id @unique @default(uuid())
   name        String
-  description String
-  finished    Boolean
+  description String?
+  finished    Boolean?  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   users       Users    @relation(fields: [userId], references: [id])
