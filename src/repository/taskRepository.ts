@@ -12,4 +12,37 @@ export class TaskRepository {
       data,
     });
   }
+
+  async removeTask(id: string): Promise<Tasks> {
+    return await this.prisma.tasks.delete({
+      where: {
+        id,
+      },
+    });
+  }
+
+  async getTask(id: string): Promise<Tasks> {
+    return await this.prisma.tasks.findUnique({
+      where: {
+        id,
+      },
+    });
+  }
+
+  async getTasksByUserId(id: string): Promise<Tasks[]> {
+    return await this.prisma.tasks.findMany({
+      where: {
+        userId: id,
+      },
+    });
+  }
+
+  async updateTask(id: string, data: TaskDto): Promise<Tasks> {
+    return await this.prisma.tasks.update({
+      where: {
+        id,
+      },
+      data,
+    });
+  }
 }
