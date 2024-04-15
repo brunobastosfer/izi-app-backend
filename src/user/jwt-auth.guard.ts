@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class JwtAuthGuard implements CanActivate {
   constructor(private readonly authService: AuthService) {}
 
-  canActivate(context: ExecutionContext): boolean {
+  async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
 
     if (!request.headers || !request.headers.authorization) {
@@ -24,7 +24,7 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     try {
-      const decodedToken = this.authService.validateToken(token);
+      const decodedToken = await this.authService.validateToken(token);
       request.user = decodedToken;
       return true;
     } catch (error) {
@@ -34,7 +34,7 @@ export class JwtAuthGuard implements CanActivate {
         case 'JsonWebTokenError':
           throw new UnauthorizedException('Invalid token');
         default:
-          throw new UnauthorizedException('Unknown error');
+          throw new UnauthorizedException(error.message);
       }
     }
   }

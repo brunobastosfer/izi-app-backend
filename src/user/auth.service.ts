@@ -42,7 +42,7 @@ export class AuthService {
     try {
       return jwt.verify(token, this.secretKey);
     } catch (error) {
-      return null;
+      throw new Error('token inválido');
     }
   }
 }
