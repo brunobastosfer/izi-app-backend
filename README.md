@@ -1,73 +1,96 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# izi-app
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Descrição
+Este é um projeto [Nest.js](https://nestjs.com/) desenvolvido com TypeScript. O objetivo desta aplicação é criar uma lista de usuário e lista de tarefas deste usuário. CRUD completo.
+## Scripts
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### `npm run build`
 
-## Description
+Compila o código TypeScript para JavaScript.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### `npm run format`
 
-## Installation
+Formata o código usando o Prettier.
 
-```bash
-$ yarn install
-```
+### `npm start`
 
-## Running the app
+Inicia o servidor Nest.js em modo de produção e executa os comandos necessários para gerar os arquivos do Prisma e atualizar o banco de dados.
 
-```bash
-# development
-$ yarn run start
+### `npm run start:dev`
 
-# watch mode
-$ yarn run start:dev
+Inicia o servidor Nest.js em modo de desenvolvimento com watch mode e executa os comandos necessários para gerar os arquivos do Prisma e atualizar o banco de dados.
 
-# production mode
-$ yarn run start:prod
-```
+### `npm run start:debug`
 
-## Test
+Inicia o servidor Nest.js em modo de depuração com watch mode.
 
-```bash
-# unit tests
-$ yarn run test
+### `npm run start:prod`
 
-# e2e tests
-$ yarn run test:e2e
+Inicia o servidor Nest.js em modo de produção.
 
-# test coverage
-$ yarn run test:cov
-```
+### `npm run lint`
 
-## Support
+Executa o ESLint para verificar e corrigir problemas de linting no código.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### `npm test`
 
-## Stay in touch
+Executa os testes usando Jest.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### `npm run test:watch`
 
-## License
+Executa os testes em modo de observação.
 
-Nest is [MIT licensed](LICENSE).
+### `npm run test:cov`
+
+Executa os testes e gera um relatório de cobertura de código.
+
+### `npm run test:debug`
+
+Executa os testes em modo de depuração.
+
+### `npm run test:e2e`
+
+Executa testes de integração end-to-end.
+
+## Dependências Principais
+
+- `@nestjs/common`: Módulo principal do Nest.js.
+- `@nestjs/config`: Módulo para configurações.
+- `@nestjs/core`: Módulo principal do Nest.js.
+- `@nestjs/jwt`: Suporte JWT para Nest.js.
+- `@nestjs/platform-express`: Módulo para integração com Express.
+- `@nestjs/swagger`: Integração com Swagger para documentação da API.
+- `@prisma/client`: Cliente Prisma para interagir com o banco de dados.
+- `bcrypt`: Biblioteca para hash de senhas.
+- `dotenv`: Carrega variáveis de ambiente a partir de um arquivo `.env`.
+- `rxjs`: Biblioteca para programação reativa.
+
+## Dependências de Desenvolvimento
+
+- `@nestjs/cli`: CLI para Nest.js.
+- `@nestjs/schematics`: Schematics para Nest.js.
+- `@nestjs/testing`: Módulo de teste para Nest.js.
+- `@types/express`: Tipos para Express.
+- `@types/jest`: Tipos para Jest.
+- `@types/node`: Tipos para Node.js.
+- `@types/supertest`: Tipos para Supertest.
+- `@typescript-eslint/eslint-plugin`: Plugin ESLint para TypeScript.
+- `@typescript-eslint/parser`: Parser ESLint para TypeScript.
+- `eslint`: Linter para JavaScript/TypeScript.
+- `eslint-config-prettier`: Configuração do ESLint para Prettier.
+- `eslint-plugin-prettier`: Plugin ESLint para Prettier.
+- `jest`: Framework de teste.
+- `prettier`: Ferramenta de formatação de código.
+- `prisma`: ORM para banco de dados.
+- `source-map-support`: Suporte a sourcemaps para Node.js.
+- `supertest`: Biblioteca para testes HTTP.
+- `ts-jest`: Adaptador Jest para TypeScript.
+- `ts-loader`: Loader TypeScript para Webpack.
+- `ts-node`: Executa arquivos TypeScript diretamente.
+- `tsconfig-paths`: Suporte para caminhos de importação baseados em `tsconfig.json`.
+- `typescript`: Linguagem de programação TypeScript.
+
+## Configuração de Testes
+
+O Jest é configurado para testar arquivos `.ts` dentro da pasta `src`, utilizando o `ts-jest` para transpilar o código TypeScript para JavaScript durante os testes. A cobertura de código é gerada na pasta `coverage`.
+
