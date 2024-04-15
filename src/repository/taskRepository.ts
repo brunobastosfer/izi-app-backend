@@ -34,6 +34,9 @@ export class TaskRepository {
       where: {
         userId: id,
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
     });
   }
 
