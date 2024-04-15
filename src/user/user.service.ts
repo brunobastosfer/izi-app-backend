@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { UserRepository } from 'src/repository/userRepository';
 import { Users } from '@prisma/client';
 import { UserDto, UserResponseDto } from './dto/userDTO';
@@ -12,6 +16,12 @@ export class UserService {
   ) {}
 
   async createUser(data: UserDto): Promise<UserResponseDto> {
+    const userAleadyExists = await this.userRepository.findUserByEmail(
+      data.email,
+    );
+    if (userAleadyExists) {
+      throw new BadRequestException('Usuário já cadastrado');
+    }
     return this.userRepository.createUser(data);
   }
 
@@ -21,7 +31,11 @@ export class UserService {
       const data = await this.authService.generateToken(user);
       return data;
     } catch (error) {
-      throw new UnauthorizedException('Erro ao autenticar o usuário');
+      throw new UnauthorizedException('Usuário e/ou senha inválidos');
     }
+  }
+
+  async listUsers(): Promise<Users[]> {
+    return this.userRepository.listUsers();
   }
 }

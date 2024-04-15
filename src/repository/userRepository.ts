@@ -49,4 +49,16 @@ export class UserRepository {
 
     return user;
   }
+
+  async listUsers(): Promise<Users[]> {
+    return await this.prisma.users.findMany();
+  }
+
+  async findUserByEmail(email: string): Promise<Users | null> {
+    return await this.prisma.users.findUnique({
+      where: {
+        email,
+      },
+    });
+  }
 }

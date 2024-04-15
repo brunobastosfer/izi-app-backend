@@ -10,4 +10,20 @@ export class TaskService {
   async createTask(data: TaskDto): Promise<Tasks> {
     return await this.taskRepository.createTask(data);
   }
+
+  async removeTask(id: string): Promise<Tasks> {
+    return await this.taskRepository.removeTask(id);
+  }
+
+  async getTask(id: string): Promise<Tasks> {
+    return await this.taskRepository.getTask(id);
+  }
+
+  async getTasksByUserId(id: string): Promise<Tasks[]> {
+    return await this.taskRepository.getTasksByUserId(id);
+  }
+
+  async updateTask(id: string, data: TaskDto): Promise<Tasks> {
+    return await this.taskRepository.updateTask(id, data);
+  }
 }

@@ -7,11 +7,6 @@ export class TaskDto {
   })
   name: string;
   @ApiProperty({
-    description: 'Descrição da tarefa',
-    example: 'Lembrar de comprar pão da marca X',
-  })
-  description: string;
-  @ApiProperty({
     description: 'ID do usuário que criou a tarefa',
   })
   userId: string;
