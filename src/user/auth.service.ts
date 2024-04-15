@@ -17,7 +17,7 @@ export class AuthService {
       },
     );
 
-    const refresToken = jwt.sign(
+    const refreshToken = jwt.sign(
       {
         scope: 'refreshToken',
         id: user.id,
@@ -30,7 +30,11 @@ export class AuthService {
 
     return {
       accessToken,
-      refresToken,
+      refreshToken,
+      user: {
+        id: user.id,
+        email: user.email,
+      },
     };
   }
 
